@@ -1,0 +1,22 @@
+namespace vote
+
+participant Candidate identified by candidateID {
+ o String candidateID
+ o Integer voteCount
+}
+
+participant Voter identified by voterID {
+ o String voterID
+ o Boolean hasVoted
+}
+
+asset Ballot identified by ballotID {
+ o String ballotID
+ --> Candidate politician
+ --> Voter voter
+}
+
+transaction Vote {
+ --> Candidate politician
+ --> Voter voter
+}
